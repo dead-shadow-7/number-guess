@@ -1,20 +1,19 @@
 
-
-
 # Number Guessing Game
 
-This is a simple number-guessing game built using React Native and Expo. The game allows users to input a number and provides options to reset or confirm their input. The project uses custom components and styles to create an interactive user interface.
+This is a simple number-guessing game built using React Native and Expo. The game allows users to pick a number, with the app attempting to guess the correct number and track the number of attempts. The project uses custom components and screens to create an interactive user experience.
 
 ## Features
 
-- **Number Input**: Enter a number (max two digits) using a custom `TextInput` component.
-- **Buttons**: Contains "Reset" and "Confirm" buttons to handle the user's input.
-- **Styling**: The app is styled using React Native's `StyleSheet` to create a visually appealing interface.
+- **Pick a Number**: Users can choose a number for the game to guess.
+- **Guess Attempts**: The app will attempt to guess the chosen number, displaying each guess.
+- **Game Over**: The app shows a "Game Over" screen when it successfully guesses the number.
+- **Custom Styling**: The app uses a gradient background and custom fonts to enhance the user interface.
 
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (LTS version recommended)
-- [Expo CLI](https://docs.expo.dev/get-started/installation/) (`npx` is recommended for the latest version)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/)
 - [React Native](https://reactnative.dev/)
 
 ## Getting Started
@@ -24,8 +23,8 @@ Follow these steps to run the project locally:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/number-guess-game.git
-cd number-guess-game
+git clone https://github.com/your-username/num-guess.git
+cd num-guess
 ```
 
 ### 2. Install Dependencies
@@ -55,31 +54,36 @@ npx expo start
 ## Project Structure
 
 ```
-number-guess-game/
+num-guess/
 │
-├── components/
-│   └── PrimaryButton.js      # Custom button component used in the app
+├── assets/                       # Assets such as images and fonts
+│   ├── fonts/                    # Custom fonts used in the app
+│   └── images/                   # Background images
 │
-├── screens/
-│   └── StartGameScreen.js    # Main screen for starting the game
+├── constants/                    # Contains global color constants
+│   └── colors.js
 │
-├── App.js                    # Entry point of the application
-├── package.json              # Lists project dependencies and scripts
-└── README.md                 # Project documentation
+├── screens/                      # App screens (Start, Game, Game Over)
+│   ├── StartGameScreen.js        # Screen for starting the game
+│   ├── GameScreen.js             # Screen for playing the game
+│   └── GameOverScreen.js         # Screen for game over
+│
+├── App.js                        # Entry point of the application
+├── package.json                  # Lists project dependencies and scripts
+└── README.md                     # Project documentation
 ```
 
 ## Components
 
-- **PrimaryButton**: A custom button component used to render "Reset" and "Confirm" buttons.
-- **StartGameScreen**: The main screen of the app containing the number input and buttons.
+- **StartGameScreen**: The initial screen where the user selects a number.
+- **GameScreen**: The screen where the game logic runs, and the app makes guesses.
+- **GameOverScreen**: The screen displayed when the game is over and the number has been guessed.
 
-## Styles
+## Styling and Fonts
 
-The app uses the `StyleSheet` API provided by React Native to style the components. Some key styles include:
-
-- `inputContainer`: Styles for the main container holding the input and buttons.
-- `numberInput`: Styles for the number input field, including color, size, and alignment.
-- `buttonsContainer` and `buttonContainer`: Styles for arranging the buttons in a row.
+- The app uses `expo-linear-gradient` for the gradient background.
+- Custom fonts (Open Sans) are loaded using `expo-font`.
+- Background images are added via `ImageBackground`, with styling for opacity.
 
 ## Troubleshooting
 
@@ -89,7 +93,7 @@ If you encounter any issues running the app, try the following:
    ```bash
    npm install -g expo-cli
    ```
-2. If you run into issues with Node.js version, consider using Node.js LTS (16.x) for compatibility.
+2. Check for font-loading issues by verifying the paths to the font files in the `useFonts` hook.
 
 ## License
 
@@ -99,5 +103,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Built with [React Native](https://reactnative.dev/)
 - Powered by [Expo](https://expo.dev/)
-```
-
